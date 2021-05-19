@@ -1,0 +1,61 @@
+<div class="row p-3">
+  <div class="col-md-4">
+   <div class="card" style="width: 18rem;">
+      <img src="/doctor-images/{{this.doctor._id}}.jpg" class="card-img-top img-thumbnail" style="width: 50%;">
+                   
+  <div class="card-body">
+    <h3 class="card-title">{{this.doctor.name}}</h3>
+    <h5 class="card-title">{{this.doctor.Specialised}}</h5>
+    <h5 class="card-title">{{this.doctor.Field}}</h5>
+
+    <ul class="list-group list-group-flush">
+   <li class="list-group-item"> <a href="/doctor/view-appointments" >Appointments</a></li>
+    <li class="list-group-item"></a>Booking</li>
+    <li class="list-group-item">My Patients</li>
+    <li class="list-group-item">Results</li>
+    <li class="list-group-item">Logout</li>
+    
+    
+  </ul>
+    
+   </div>
+</div>
+  </div>
+<div class="col-md-6">
+
+    <div class="container">
+      
+        <table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">patient</th>
+      <th scope="col">appointment date</th>
+      <th scope="col">mobile</th>
+      <th scope="col">action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+      {{#each appointment.requested}}
+    <tr>
+     
+      <td><img style ="height:50px;width:50px" src="/images/{{this.user}}.jpg">{{this.userDetailes.name}}</td>
+      <td>{{this.date}}</br>{{this.time}}</td>
+      <td>{{this.userDetailes.mobile}}</td>
+      
+       <td><a href="/doctor/accept/{{this._id}} "class="btn btn-success">Accept</a></td>
+      <td><a href="/doctor/reject/{{this._id}} "class="btn btn-danger">Reject</a></td>
+      
+    </tr>
+    {{/each}}
+    
+  </tbody>
+</table>
+    </div>
+</div>
+</div>
+
+
+
+
+  

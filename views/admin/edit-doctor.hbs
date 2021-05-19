@@ -1,0 +1,35 @@
+<section>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="text-center">edit doctor</h2>
+<form action="/admin/edit-doctor/{{doctor._id}}" method="POST" enctype="multipart/form-data">
+  
+    <label for="">Name</label>
+    <input type="text" class="form-control" name="name" value="{{doctor.name}}">
+
+    <label for="">Specialised</label>
+    <input type="text" class="form-control" name="Specialised" value="{{doctor.Specialised}}">
+    
+    <label for="">Field</label>
+    <input type="text" class="form-control" name="Field" value="{{doctor.Field}}">
+    
+    
+    <label for="">Image</label>
+    <img src="/doctor-images/{{doctor._id}}.jpg" alt="" style="height:100px width:auto" id="imgView">
+    <input type="file" class="form-control" name="image" onchange="viewImage(event)">
+    
+  
+  
+  <button type="submit" class="btn btn-Success mt-4">Submit</button>
+</form>
+    </div>
+</div>
+</div>
+</section>
+<script>
+    function viewImage(event){
+        document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+    }
+</script>

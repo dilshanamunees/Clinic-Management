@@ -1,0 +1,90 @@
+<div class="container">
+   
+
+ 
+
+        <!-- - Form  -->
+
+        <div class="content">
+            <div class="row">
+                <div class="col-12 col-md-6 mb-3">
+                    <div class="card">
+                       
+                    </div>
+                    <div class="card2 card">
+                        <form action="/edit-profile/{{user._id}}" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="fname">Name</label>
+                                <div class="input-group">
+                                    <input id="fname" type="text" name="name" class="form-control" placeholder="John"
+                                        value="{{user.name}}" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email address</label>
+                                <input id="email" type="email" name="email" class="form-control"
+                                    placeholder="johndoe@gmail.com" value="{{user.email}}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">New Password</label>
+                                <input type="password" class="form-control" name="password" placeholder="******">
+                            </div>
+                            <div class="form-group">
+                                <label for="place">Place</label>
+                                <input type="text" class="form-control" name="place" id="place"
+                                    placeholder="Calicut, India" value="{{user.place}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="dob">Date of Birth</label>
+                                <input type="date" name="dob" class="form-control" placeholder="dd-mm-yyyy" required>
+                            </div>
+                            <div class="row ">
+                                <div class="form-group col-12 col-md-6">
+                                    <label for="phone">Phone Number</label>
+                                    <input id="phone" type="phone" class="form-control" name="phone" placeholder="+91 "
+                                        value="{{user.mobile}}" required>
+                                </div>
+                               
+                            </div>
+                            <div class="formInputs row">
+                                <div class="form-group col-12">
+                                    <label for="image" class="custom-file-upload">
+                                        <div class="formInputs">
+                                            <i class='bx bx-cloud-upload'></i>
+                                            Upload Profile Image
+                                            <input type="file" class="image" id="image">
+                                        </div>
+                                        <img src="/images/{{user._id}}.jpg" class="displayImg" id="displayImg"
+                                            name="image" alt="">
+                                    </label>
+                                </div>
+                                <div class="col-12 col-md-6 mb-3">
+                                    <button type="submit" class="btn btn-green">Update</button>
+                                </div>
+                            </div>
+                    </div>
+                    {{!-- Input hidden for sending image base64 data --}}
+                    <div class="form-group col-12">
+                        <input type="text" class="form-control image-label" style="visibility: hidden;" name="image">
+                    </div>
+                    </form>
+                </div>
+               
+
+                <p></p>
+                <p></p>
+            </div>
+            <div class="modal-bg">
+                <div class="modal-box col-11 col-sm-8 col-md-6 col-lg-4">
+                    <i class="fa fa-times-circle-o close-icon" aria-hidden="true"></i>
+                    <div class="col-12 image_demo" id="image_demo_edit"></div>
+                    <a class="btn btn-green formInputs col-12 crop-btn">Crop Image</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/javascripts/imageCroppie.js">
+   
+</script>

@@ -1,0 +1,35 @@
+<section>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-center">Add Patient</h2>
+<form action="/admin/add-patient" method="POST" enctype="multipart/form-data">
+  
+    <label for="">Name</label>
+    <input type="text" class="form-control" name="name">
+
+    <label for="">Age</label>
+    <input type="text" class="form-control" name="age">
+    
+    <label for="">Mobile Number</label>
+    <input type="text" class="form-control" name="mobile">
+    <div class="form-group">
+    <label for="exampleFormControlSelect1">status</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="Status">
+      <option>active</option>
+      <option>deleted</option>
+      
+    </select>
+  </div>
+    
+    <label for="">Image</label>
+    <input type="file" class="form-control" name="image" >
+    
+  
+  
+  <button type="submit" class="btn btn-Success mt-4">Submit</button>
+</form>
+    </div>
+</div>
+</div>
+</section>

@@ -1,0 +1,66 @@
+
+
+
+
+<div> <h5 class="text-info"  style="text-align: center; font-size:30px">BOOK AN APPOINTMENT</h5></div>
+<form action="/booking/{{this.doctor._id}}" method="POST" enctype="multipart/form-data">
+<div class="row p-3" >
+  <div class="col-md-4">
+    <div class="card mx-auto" style="width: 18rem;">
+  <img class="card-img-top" src="/doctor-images/{{this.doctor._id}}.jpg" alt="Card image cap" style="width: 50%;">
+  <div class="card-body">
+    <h3 class="card-title">{{this.doctor.name}}</h3>
+    <h5 class="card-title">{{this.doctor.Specialised}}</h5>
+    <h5 class="card-title">{{this.doctor.Field}}</h5>
+   </div>
+</div>
+  </div>
+  <div class="col-md-4 col-md-offset-4 ">
+    <div class="card">
+      <div class="card-body">
+          <div style="background-color: rgb(84, 132, 180); text-align:center">
+             <h3 class="text-light">Select A Date And Time</h3>   
+            </div>
+            <div style="background-color: aliceblue; text-align:center">
+             <h3 class="text-info " style="font-family:Arial, Helvetica, sans-serif ;">From 9-am to 12-pm and From 4-pm to 6pm</h3>   
+            </div>
+        
+            
+ <div  class="pt-4" style="text-align: center;">
+
+<div class="row">
+    <table >
+        
+            <tr>
+             <td><input type="hidden" name="name" value="{{this.doctor.name}}"></td>
+             
+              
+ <td><label for="date">Select A Date</label>
+  <input type="text" id="datepicker" name="date" onchange="checkTimeSlot('{{this.doctor._id}}','datepicker')" ></td>
+ 
+  <td>
+<select id="selectTime" name="time">
+   <option>time</option>
+  </select>
+</td>
+
+            </tr>
+            </div>
+        
+    </table>
+   
+</div>
+  
+
+<div class="pt-5" style="text-align: justify;">
+   <button type="submit" class="btn btn-primary float-right">BOOK</button>
+   </div>
+   </form>
+ </div>
+ 
+
+
+ <script src="/javascripts/availableTimeSlots.js">
+ 
+ 
+  </script>

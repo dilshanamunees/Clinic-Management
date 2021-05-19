@@ -1,0 +1,39 @@
+<section>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 class="text-center">Add prescription</h2>
+<form action="/doctor/consult/{{appointment._id}}/{{appointment.user}}" method="POST" enctype="multipart/form-data">
+  
+  <table>
+ <tr><td> <label for="">Name</label>
+    <input type="text" class="form-control" name="name"  value="{{appointment.bookingFor}}"></td>
+
+  <td>  <label for="">Date</label>
+    <input type="text" class="form-control" name="date" value="{{appointment.date}}" >
+    
+    </td>
+    <td>  <label for="">Doctor</label>
+    <input type="text" class="form-control" name="doctor" value="{{appointment.docName}}" >
+    
+    </td>
+    
+
+    </tr>
+    <tr>
+       </td>
+    <td>  <label for="">prescription</label>
+    <textarea class="form-control" rows="4"  name="prescription"  ></textarea>
+</td> 
+    </tr>
+   </table>
+    
+   
+  
+  <button type="submit" class="btn btn-Success mt-4">Submit</button>
+</form>
+    </div>
+</div>
+</div>
+</section>

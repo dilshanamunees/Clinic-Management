@@ -1,0 +1,149 @@
+<div class="row p-3">
+  <div class="col-md-4">
+   <div class="card" style="width: 18rem;">
+      <img src="/images/{{user._id}}.jpg" class="card-img-top img-thumbnail" style="width: 50%;">
+                   
+  <div class="card-body">
+    <h3 class="card-title">{{user.name}}</h3>
+     <h3 class="card-title">{{user.email}}</h3>
+     <h3 class="card-title">{{user.dob}}</h3>
+    <h5 class="card-title">{{user.mobile}}</h5>
+     <h3 class="card-title">{{user.place}}</h3>
+
+    <a href="/edit-profile/{{user._id}}">edit profile</a>
+    
+   </div>
+</div>
+  </div>
+  
+<div class="col-md-6">
+<div class="tab ">
+  <button class="tablinks" onclick="openTab(event, 'Requested')" id="defaultOpen">Requested</button>
+  <button class="tablinks" onclick="openTab(event, 'cancelled')">cancelled</button>
+  <button class="tablinks" onclick="openTab(event, 'confirmed')">confirmed</button>
+  <button class="tablinks" onclick="openTab(event, 'consulted')">consulted</button>
+</div>
+
+<div id="Requested" class="tabcontent">
+ <div class="row  ">
+          {{#each appointment.requested}}
+             
+                <div class="card"style="height:20rem; width:15rem">
+                  <div class="card-header">
+                    <img src="/doctor-images/{{this.doctorDetailes._id}}.jpg" class="card-img-top img-thumbnail" style="width: 35%;">
+                   
+                      <h5 >{{this.doctorDetailes.name}}</h5>
+                      <h6>{{this.doctorDetailes.Field}}</h6>
+                  </div>
+                      <div class="card-body">
+                      <h6 class="card-subtitle mb-2 ">appointment date:{{this.date}}</h6>
+                      <h6 class="card-subtitle mb-2 ">Time:{{this.time}}</h6>
+                       <h6 class="card-subtitle mb-2 ">BookingFor:{{this.bookingFor}}</h6>
+                      
+                     <a href="/cancel/{{this._id}}" class="btn"onclick="confirm('do you want  to cancel')" style="float: right;">Cancel</a>
+
+                      
+                    </div>
+                  </div>
+                  {{/each}}
+            
+           </div>
+</div>
+
+
+
+<div id="cancelled" class="tabcontent">
+  <div class="row  ">
+          {{#each appointment.cancelled}}
+             
+                <div class="card"style="height:20rem; width:15rem">
+                  <div class="card-header">
+                    <img src="/doctor-images/{{this.doctorDetailes._id}}.jpg" class="card-img-top img-thumbnail" style="width: 35%;">
+                   
+                      <h5 >{{this.doctorDetailes.name}}</h5>
+                      <h6>{{this.doctorDetailes.Field}}</h6>
+                  </div>
+                      <div class="card-body">
+                      <h6 class="card-subtitle mb-2 ">appointment date:{{this.date}}</h6>
+                      <h6 class="card-subtitle mb-2 ">Time:{{this.time}}</h6>
+                       <h6 class="card-subtitle mb-2 ">BookingFor:{{this.bookingFor}}</h6>
+                      
+                        
+                    </div>
+                  </div>
+                  {{/each}}
+            
+           </div>
+</div>
+
+<div id="confirmed" class="tabcontent">
+ <div class="row  ">
+          {{#each appointment.confirmed}}
+             
+                <div class="card"style="height:20rem; width:15rem">
+                  <div class="card-header">
+                    <img src="/doctor-images/{{this.doctorDetailes._id}}.jpg" class="card-img-top img-thumbnail" style="width: 35%;">
+                   
+                      <h5 >{{this.doctorDetailes.name}}</h5>
+                      <h6>{{this.doctorDetailes.Field}}</h6>
+                  </div>
+                      <div class="card-body">
+                      <h6 class="card-subtitle mb-2 ">appointment date:{{this.date}}</h6>
+                      <h6 class="card-subtitle mb-2 ">Time:{{this.time}}</h6>
+                       <h6 class="card-subtitle mb-2 ">BookingFor:{{this.bookingFor}}</h6>
+                      
+                      <a href="/cancel/{{this._id}}" class="btn"onclick="confirm('do you want  to cancel')" style="float: right;">Cancel</a>
+
+
+                      
+                      
+                     
+                     
+
+                      
+                    </div>
+                  </div>
+                  {{/each}}
+            
+           </div>
+</div>
+<div id="consulted" class="tabcontent">
+  <div class="row  ">
+          {{#each appointment.consulted}}
+             
+                <div class="card"style="height:20rem; width:15rem">
+                  <div class="card-header">
+                    <img src="/doctor-images/{{this.doctorDetailes._id}}.jpg" class="card-img-top img-thumbnail" style="width: 35%;">
+                   
+                      <h5 >{{this.doctorDetailes.name}}</h5>
+                      <h6>{{this.doctorDetailes.Field}}</h6>
+                  </div>
+                      <div class="card-body">
+                      <h6 class="card-subtitle mb-2 ">appointment date:{{this.date}}</h6>
+                      <h6 class="card-subtitle mb-2 ">Time:{{this.time}}</h6>
+                       <h6 class="card-subtitle mb-2 ">BookingFor:{{this.bookingFor}}</h6>
+                      
+                         <a href="/prescription/{{this._id}}" class='bx bx-cloud-download download-icon'>download prescription</a> 
+                      
+                    </div>
+                  </div>
+                  
+                  {{/each}}
+            
+           </div>
+</div>
+
+</div>
+</div>
+
+
+
+
+<script src="/javascripts/tabview.js">
+
+</script>
+   
+
+
+            
+           

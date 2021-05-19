@@ -1,0 +1,220 @@
+<div class="row p-3">
+  <div class="col-md-4">
+   <div class="card" style="width: 18rem;">
+      <img src="/doctor-images/{{this.doctor._id}}.jpg" class="card-img-top img-thumbnail" style="width: 50%;">
+                   
+  <div class="card-body">
+    <h3 class="card-title">{{this.doctor.name}}</h3>
+    <h5 class="card-title">{{this.doctor.Specialised}}</h5>
+    <h5 class="card-title">{{this.doctor.Field}}</h5>
+
+    <ul class="list-group list-group-flush">
+   <li class="list-group-item"> <a href="/doctor/view-appointments" >Appointments</a></li>
+    <li class="list-group-item"><a href="/doctor/Bookings" >Booking</a></li>
+    <li class="list-group-item"><a href="/doctor/mypatients" >My Patients</a></li>
+    <li class="list-group-item"><a href="/doctor/results" >Results</a></li>
+    <li class="list-group-item"><a href="/doctor/logout" >Logout</a></li>
+    
+    
+  </ul>
+    
+   </div>
+</div>
+  </div>
+<div class="col-md-6">
+    <div class="tab ">
+  <button class="tablinks" onclick="openTab(event, 'Today')" id="defaultOpen">Today</button>
+  <button class="tablinks" onclick="openTab(event, 'Upcoming')">Upcoming</button>
+  <button class="tablinks" onclick="openTab(event, 'consulted')">consulted</button>
+   <button class="tablinks" onclick="openTab(event, 'expired')">Expired</button>
+</div>
+<div id="Today" class="tabcontent">
+
+    
+      
+        <table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">patient</th>
+      <th scope="col">appointment date</th>
+      <th scope="col">mobile</th>
+      <th scope="col">action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+      {{#each appointment.today}}
+    <tr>
+     
+      <td><img style ="height:50px;width:50px" src="/user-images/{{this.user}}.jpg">{{this.userDetailes.name}}</td>
+      <td>{{this.date}}</br>{{this.time}}</td>
+      <td>{{this.userDetailes.mobile}}</td>
+      
+       <td><a href="/doctor/consult/{{this._id}} "class="btn btn-success">Consult</a></td>
+     
+      
+    </tr>
+    {{/each}}
+    
+  </tbody>
+</table>
+   
+    </div>
+    <div id="Upcoming" class="tabcontent">
+
+    
+      
+        <table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">patient</th>
+      <th scope="col">appointment date</th>
+      <th scope="col">mobile</th>
+      <th scope="col">action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+      {{#each appointment.upcoming}}
+    <tr>
+     
+      <td><img style ="height:50px;width:50px" src="/user-images/{{this.user}}.jpg">{{this.userDetailes.name}}</td>
+      <td>{{this.date}}</br>{{this.time}}</td>
+      <td>{{this.userDetailes.mobile}}</td>
+      
+       <td><a href="/doctor/consult/{{this._id}} "class="btn btn-success">Consult</a></td>
+     
+      
+    </tr>
+    {{/each}}
+    
+  </tbody>
+</table>
+   
+    </div>
+    <div id="expired" class="tabcontent">
+
+    
+      
+        <table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">patient</th>
+      <th scope="col">appointment date</th>
+      <th scope="col">mobile</th>
+      <th scope="col">action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+      {{#each appointment.expired}}
+    <tr>
+     
+      <td><img style ="height:50px;width:50px" src="/user-images/{{this.user}}.jpg">{{this.userDetailes.name}}</td>
+      <td>{{this.date}}</br>{{this.time}}</td>
+      <td>{{this.userDetailes.mobile}}</td>
+      
+       <td><a href="/doctor/consult/{{this._id}} "class="btn btn-success">Consult</a></td>
+     
+      
+    </tr>
+    {{/each}}
+    
+  </tbody>
+</table>
+   
+    </div>
+     <div id="consulted" class="tabcontent">
+
+    
+      
+        <table class="table mt-5">
+  <thead>
+    <tr>
+      <th scope="col">patient</th>
+      <th scope="col">appointment date</th>
+      <th scope="col">mobile</th>
+      <th scope="col">action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+      {{#each appointment.consulted}}
+    <tr>
+     
+      <td><img style ="height:50px;width:50px" src="/user-images/{{this.user}}.jpg">{{this.userDetailes.name}}</td>
+      <td>{{this.date}}</br>{{this.time}}</td>
+      <td>{{this.userDetailes.mobile}}</td>
+      
+       <td><a href=" "class="btn btn-success">Consulted</a></td>
+     
+      
+    </tr>
+    {{/each}}
+    
+  </tbody>
+</table>
+   
+    </div>
+</div>
+</div>
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+
+
+<script>
+function openTab(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+document.getElementById("defaultOpen").click();
+</script>
+   
+

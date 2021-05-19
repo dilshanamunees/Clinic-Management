@@ -1,0 +1,31 @@
+<nav class="navbar navbar-light bg-secondary justify-content-between">
+  <a class="navbar-brand">DENTACARE</a>
+  <form class="form-inline">
+    <div class="dropdown show">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{#if user}}
+     {{user.name}}
+     {{else}}
+     Login
+ {{/if}}
+    
+  </button>
+
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+    {{#if user}}
+    <a class="dropdown-item" href="/appointment">MY PROFILE</a>
+    <a class="dropdown-item" href="/logout">LOG OUT</a>
+
+{{else}}
+    <a class="dropdown-item" href="/login">USER LOGIN</a>
+    <a class="dropdown-item" href="#">DOCTOR LOGIN</a>
+    <a class="dropdown-item" href="admin/admin-login">ADMIN LOGIN</a>
+    
+  </div>
+</div>
+   
+    <button class="btn btn-sm btn-outline-secondary" type="button">Register</button>
+    {{/if}}
+  </form>
+
+</nav>

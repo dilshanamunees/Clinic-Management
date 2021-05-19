@@ -1,0 +1,8 @@
+module.exports={
+ADMIN_COLLECTION:'admin',
+DOCTOR_COLLECTION:'doctor',
+
+USER_COLLECTION:'user',
+APPOINTMENT_COLLECTION:'appointment',
+PRESCRIPTION_COLLECTION:'prescription'
+}

@@ -1,0 +1,36 @@
+
+<section class="bg-light  " style="margin-top:110px">
+    <div class="container mt-5">
+        
+        <div class="row  ">
+          {{#each doctors}}
+             
+                <div class="card"style="height:20rem; width:15rem">
+                    <img src="/doctor-images/{{this._id}}.jpg" class="card-img-top img-thumbnail" style="width: 50%;">
+                    <div class="card-body">
+                      <h5 class="card-title">{{this.name}}</h5>
+                      <h6 class="card-subtitle mb-2 ">{{this.Specialised}}</h6>
+                       <h5 class="card-subtitle mb-2 text-info">{{this.Field}} </h5>
+
+                      
+                      <a href="/booking/{{this._id}}" class="btn btn-success ">BOOK</a>
+                    </div>
+                  </div>
+                  {{/each}}
+            
+           </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+  
+
+    
