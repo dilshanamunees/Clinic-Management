@@ -1,4 +1,5 @@
 const passport = require("passport");
+const { check, validationResult } = require('express-validator');
 var express = require("express");
 var router = express.Router();
 const { response } = require("express");
@@ -54,14 +55,34 @@ router.post(
 router.get("/register", (req, res) => {
   res.render("user/register");
 });
-router.post("/register", (req, res) => {
+
+router.post("/register",[
+  check('password', 'Password length should be 8 to 10 characters')
+                  .isLength({ min: 6, max: 10 }),
+       check('email', 'Email is not valid')
+                  .isEmail()
+                  .normalizeEmail(),
+      check('name', 'This username must me 3+ characters long')
+                  .exists()
+                  .isLength({ min: 3 }),
+],  (req, res) => {
+  const errors = validationResult(req);
+ 
+  // If some error occurs, then this
+  // block of code will run
+  if (!errors.isEmpty()) {
+    
+    const alert = errors.array()
+    console.log(alert)
+      res.render("user/register",{alert})
+  }else{
   userHelpers.doSignup(req.body).then((response) => {
     console.log(response);
     if (response.error) {
       var error = response.error;
       req.flash("error", "Your account is exists. Please log in.");
       error = "Your account is exists. Please log in.";
-      res.redirect("/login?err=" + encodeURIComponent(error));
+      res.redirect("login?err=" + encodeURIComponent(error));
     } else {
       //req.login(response, function (err) {
       // if (!err) {
@@ -73,7 +94,9 @@ router.post("/register", (req, res) => {
       // res.redirect('/login?err='+encodeURIComponent(error))
       //}
     }
+  
   });
+}
 });
 
 router.get("/failed", (req, res) => res.send("You Failed to log in!"));
