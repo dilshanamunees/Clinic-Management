@@ -4,7 +4,6 @@ const bcrypt=require('bcrypt')
 var passport          =     require('passport')
 var FacebookStrategy  =     require('passport-facebook').Strategy
 var auth           =     require('../config/auth')
-
 const { response } = require('express')
 const { ObjectID } = require('mongodb')
 var objectId=require('mongodb').ObjectID
@@ -29,51 +28,7 @@ module.exports={
 
 
 },
- /* doSignup:(userData)=>{
-      return new Promise(async(resolve,reject)=>{
-        console.log(userData)
-          userData.password=await bcrypt.hash(userData.password,10)
-          let email=db.get().collection(collection.USER_COLLECTION).findOne({email:userData.email})
-          console.log(email)
-          if(!email){
-            userData.name=true
-          db.get().collection(collection.USER_COLLECTION).insertOne(userData).then((data)=>{
-          resolve(data.ops[0])
-          })
-        }else{
-          response.error = true
-          
-          resolve(response, { message: 'Your account is exists. Please log in.' })
-        }
-      })
-
-  
-  }, 
-  
-/*doLogin:(userData)=>{
-        
-
-  return new Promise(async(resolve,reject)=>{
-    let loginStatus=false
-    let response={}
-let user=await db.get().collection(collection.USER_COLLECTION).findOne({email:userData.Email})
-if (user){
-bcrypt.compare(userData.password,user.password).then((status)=>{
-if(status){
-//console.log('login success');
-response.user=user
-response.status=true
-resolve(response)
-}else{
-//console.log("login failed");
-resolve({status:false})
-}
-})
-}else{
-//console.log("cant find email");
-}
-})
-},*/
+ // get doctor detailes to the home page //
 getDoctorDetailes:(docID)=>{
   return new Promise(async(resolve,reject)=>{
     console.log(docID)
@@ -82,6 +37,8 @@ getDoctorDetailes:(docID)=>{
     })
   })
 },
+
+//adding appointment detailes to the database //
 addAppointment:(appDetailes,User,docId)=>{
   return new Promise(async(resolve,reject)=>{
   
@@ -100,7 +57,7 @@ addAppointment:(appDetailes,User,docId)=>{
  })
 },
 
-
+//get each user's appointments to their profile //
 getAppointments:(userId)=>{
   return new Promise(async(resolve,reject)=>{
     console.log(userId)
@@ -204,6 +161,7 @@ getAppointments:(userId)=>{
     })
   
 },
+//get user detailes from database //
 getUserDetailes:(userId)=>{
   return new Promise((resolve,reject)=>{
       db.get().collection(collection.USER_COLLECTION).findOne({_id:objectId(userId)}).then((user)=>{
@@ -239,6 +197,7 @@ updateUser:(userId,userDetails)=>{
 
   })
 },
+//to cancel a user appointment //
 cancelAppointment:(appId)=>{
   return new Promise((resolve,reject)=>{
       
@@ -256,6 +215,9 @@ cancelAppointment:(appId)=>{
 
 }) 
 },
+
+
+//To show only the available date and timeslot for appointment//
 checkDate:(detailes)=>{
   reqdate=detailes.date
   console.log(reqdate)
@@ -268,14 +230,13 @@ let bookingSlot=['9.00-9.30 AM','9.30-10.00 AM','10.00-10.30 AM','10.30-11.00AM'
     return timeslot.indexOf(val) == -1;
   });
 console.log(difference);
- 
-
-      resolve(difference)
+  resolve(difference)
 
 
   })
 
 },
+
 getPrescriptionDetails:(appId)=>{
   return new Promise(async(resolve,reject)=>{
     let presc=db.get().collection(collection.PRESCRIPTION_COLLECTION).find({Appointment:objectId(appId)}) .toArray()

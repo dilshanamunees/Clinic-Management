@@ -84,15 +84,11 @@ router.post("/register",[
       error = "Your account is exists. Please log in.";
       res.redirect("login?err=" + encodeURIComponent(error));
     } else {
-      //req.login(response, function (err) {
-      // if (!err) {
+     
       req.user = response.user;
       console.log(req.user);
       res.redirect("/");
-      //} else {
-      //var error = 'Something went wrong. Please login with the Credintials'
-      // res.redirect('/login?err='+encodeURIComponent(error))
-      //}
+     
     }
   
   });
